@@ -29,28 +29,30 @@ namespace PlaybackText
         private void Button1_Click(object sender, EventArgs e)
 
         {
-            string path = Environment.UserName + ".txt";
-            if (!File.Exists(path))
+            
+            string path = UID + ".txt";
+            
+
+
             {
                 //Create a file to write to
-                StreamWriter File = new StreamWriter(Environment.UserName + ".txt");
+
+         
+                StreamWriter File = new StreamWriter(path);
                 File.WriteLine(playback_TextBox.Text + " " + DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
                 File.Close();
                 Close();
 
             }
-            else if (File.Exists(path))
-            {
-                using (var File = new StreamWriter(path, true))
-
-                {
-                    File.WriteLine(playback_TextBox.Text + " " + DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
-                    File.Close();
-                    Close();
-                }
+            
 
 
-            }
+            
         }
+
+        
+        
+
+        
     }
 }
